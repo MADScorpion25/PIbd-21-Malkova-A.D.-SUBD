@@ -20,12 +20,21 @@ public class AbonentTests {
 //            Abonent abonent = new Abonent(Character.getName(i), Character.getName(i++), "", i +"@jourrapide.com", Date.valueOf("2002-01-01"));
 //            addAbonent(abonent).ifPresent(abonent::setId);
 //        }
-        long start = System.nanoTime();
+        Abonent fabonent = new Abonent("John", "Pharell", "", "JohnPharell@jourrapide.com", Date.valueOf("2001-05-01"));
+        Abonent sabonent = new Abonent("Jane", "Ostin", "", "JaneOstin@jourrapide.com", Date.valueOf("2005-05-11"));
+        addAbonent(fabonent).ifPresent(fabonent::setId);
+        addAbonent(sabonent).ifPresent(sabonent::setId);
+        System.out.println("--------------------------");
         getAllAbonents().forEach(System.out::println);
-        long finish = System.nanoTime();
-        long elapsed = finish - start;
-        System.out.println("Прошло времени, мс: " + elapsed/1000000);
-
+        fabonent.setFirstName("Sally");
+        updateAbonent(fabonent);
+        System.out.println("--------------------------");
+        System.out.println(getAbonent("JohnPharell@jourrapide.com"));
+        System.out.println("--------------------------");
+        getAllAbonentsByMask("Ja%").forEach(System.out::println);
+        System.out.println("--------------------------");
+        deleteAbonent("JohnPharell@jourrapide.com");
+        deleteAbonent("JaneOstin@jourrapide.com");
     }
 
     // Static helper methods referenced above

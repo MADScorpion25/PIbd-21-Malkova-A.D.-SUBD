@@ -17,7 +17,7 @@ public class JdbcConnection {
     public static Optional<Connection> getConnection() {
         String url = "jdbc:postgresql://localhost:5432/AbonentInfo";
         String user = "postgres";
-        String password = "";
+        String password = "MADScorpion";
 
         try {
             connection = Optional.ofNullable(
