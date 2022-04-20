@@ -8,6 +8,9 @@ public class Abonent {
     private String firstName, lastName, patronimyc, email;
     private Date birthDate;
 
+    public Abonent(){
+
+    }
     public Abonent(String firstName, String lastName, String patronimyc, String email, Date birthDate) {
         this.firstName = firstName;
         this.lastName = lastName;

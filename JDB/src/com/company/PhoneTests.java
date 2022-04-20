@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 public class PhoneTests {
     private static final Logger LOGGER =
-            Logger.getLogger(AbonentTests.class.getName());
+            Logger.getLogger(PhoneTests.class.getName());
     private static final PhoneDao<PhoneNumber, Integer> PHONE_DAO = new PhoneSqlDao();
 
     public static void main(String[] args) {
@@ -19,8 +19,20 @@ public class PhoneTests {
 //        addPhone(phone).ifPresent(phone::setId);
 //        getAllPhones().forEach(System.out::println);
 //        getPhoneByDate(Date.valueOf("2019-01-01")).forEach(System.out::println);
-        deletePhone("5678");
+        PhoneNumber fphone = new PhoneNumber(2,1026,1,"Yes", "5630", Date.valueOf("2018-01-26"));
+        PhoneNumber sphone = new PhoneNumber(2,1026,1,"Yes", "5648", Date.valueOf("2019-01-26"));
+        addPhone(fphone).ifPresent(fphone::setId);
+        addPhone(sphone).ifPresent(sphone::setId);
+        System.out.println("--------------------------");
         getAllPhones().forEach(System.out::println);
+        fphone.setPhone("7777");
+        updatePhone(fphone);
+        System.out.println("--------------------------");
+        System.out.println(getPhone("7777"));
+        System.out.println("--------------------------");
+        getPhoneByDate(Date.valueOf("2019-01-01")).forEach(System.out::println);
+        deletePhone("7777");
+        deletePhone("5648");
     }
 
     // Static helper methods referenced above

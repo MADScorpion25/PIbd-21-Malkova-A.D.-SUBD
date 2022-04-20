@@ -33,7 +33,7 @@ public class AbonentTests {
         System.out.println("--------------------------");
         getAllAbonentsByMask("Ja%").forEach(System.out::println);
         System.out.println("--------------------------");
-        deleteAbonent("JohnPharell@jourrapide.com");
+        //deleteAbonent("JohnPharell@jourrapide.com");
         deleteAbonent("JaneOstin@jourrapide.com");
     }
 

@@ -25,7 +25,7 @@ public class PhoneSqlDao implements PhoneDao<PhoneNumber, Integer> {
     public Optional<PhoneNumber> get(String phone) {
         return connection.flatMap(conn -> {
             Optional<PhoneNumber> phoneNumber = Optional.empty();
-            String sql = "SELECT * FROM phoneNumber WHERE email = \'" + phone + "\'";
+            String sql = "SELECT * FROM phoneNumber WHERE phone = \'" + phone + "\'";
 
             try (Statement statement = conn.createStatement();
                  ResultSet resultSet = statement.executeQuery(sql)) {
